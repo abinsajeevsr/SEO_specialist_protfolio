@@ -2130,131 +2130,6 @@ body.nav-open {
   opacity: 0.55;
   margin: 0 auto;
 }
-.hero__avatar-wrap {
-  position: relative;
-  width: 168px;
-  height: 168px;
-  margin: 0 auto;
-  flex-shrink: 0;
-}
-.hero__avatar {
-  width: 168px;
-  height: 168px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid var(--orange-bright);
-  padding: 4px;
-  background-color: var(--choco-900);
-  display: block;
-}
-
-/* Interactive Avatar & Hover Popup */
-.hero__avatar-interactive {
-  position: relative;
-  width: 168px;
-  height: 168px;
-  border-radius: 50%;
-  display: inline-block;
-  cursor: pointer;
-}
-.hero__avatar-interactive:focus-visible {
-  outline: 2px solid var(--orange-bright);
-  outline-offset: 6px;
-}
-.hero__profile-popup {
-  position: absolute;
-  top: calc(100% + 14px);
-  left: 50%;
-  transform: translateX(-50%) scale(0.95);
-  background: var(--choco-900);
-  color: var(--cream);
-  border: 1px solid var(--choco-700);
-  border-radius: var(--radius-md);
-  padding: 0.6rem 0.9rem;
-  white-space: nowrap;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 180ms ease, transform 180ms ease, visibility 180ms ease;
-  z-index: 30;
-  pointer-events: none;
-  text-align: center;
-}
-.hero__profile-popup::before {
-  content: "";
-  position: absolute;
-  top: -6px;
-  left: 50%;
-  transform: translateX(-50%) rotate(45deg);
-  width: 10px;
-  height: 10px;
-  background: var(--choco-900);
-  border-left: 1px solid var(--choco-700);
-  border-top: 1px solid var(--choco-700);
-}
-.hero__popup-name {
-  display: block;
-  font-family: var(--font-serif);
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--cream);
-}
-.hero__popup-role {
-  display: block;
-  font-size: 0.78rem;
-  color: var(--orange-bright);
-  font-weight: 600;
-}
-.hero__avatar-interactive:hover .hero__profile-popup,
-.hero__avatar-interactive:focus-visible .hero__profile-popup,
-.hero__avatar-interactive.is-active .hero__profile-popup {
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(-50%) scale(1);
-}
-
-/* Hero Breathing Ring */
-.hero__ring {
-  position: absolute;
-  top: -6px;
-  left: -6px;
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  border: 1px solid var(--orange-bright);
-  pointer-events: none;
-  animation: heroRingBreathe 4s ease-in-out infinite;
-  will-change: transform, opacity;
-}
-.hero__ring.is-paused {
-  animation-play-state: paused;
-}
-@keyframes heroRingBreathe {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 0.22;
-  }
-  50% {
-    transform: scale(1.08);
-    opacity: 0.65;
-  }
-}
-
-@media (min-width: 768px) {
-  .hero__avatar-wrap,
-  .hero__avatar-interactive,
-  .hero__avatar {
-    width: 232px;
-    height: 232px;
-  }
-  .hero__ring {
-    top: -8px;
-    left: -8px;
-    width: 248px;
-    height: 248px;
-  }
-}
-
 .hero__title {
   font-family: Georgia, "Times New Roman", Times, serif;
   font-weight: 700;
@@ -2453,15 +2328,15 @@ body.nav-open {
   }
 
   .hero-diagram__card--blush {
-    background-color: var(--dusty-blush, #F2D4D2);
+    background-color: var(--pastel-blush);
   }
 
   .hero-diagram__card--lavender {
-    background-color: var(--muted-lavender, #E5DDF0);
+    background-color: var(--pastel-lavender);
   }
 
   .hero-diagram__card--mint {
-    background-color: var(--sage-mint, #D6E8DC);
+    background-color: var(--pastel-mint);
   }
 
   .hero-diagram__card--ivory {
@@ -3407,7 +3282,7 @@ body {
 /* 9. Accessibility & Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .card, .fab, .back-to-top, .navbar__link, .btn, .hero__profile-popup, .card__popup-tag, .hero__word, .nav-dropdown__link, .nav-toggle, .mobile-nav, .nav-backdrop, details.faq-item, details.faq-item summary, details.faq-item summary::after { transition: none !important; }
+  .card, .fab, .back-to-top, .navbar__link, .btn, .card__popup-tag, .hero__word, .nav-dropdown__link, .nav-toggle, .mobile-nav, .nav-backdrop, details.faq-item, details.faq-item summary, details.faq-item summary::after { transition: none !important; }
   details.faq-item .faq-answer { animation: none !important; }
   .hero__word { animation: none !important; transform: none !important; opacity: 1 !important; }
   .hero__title:hover .hero__word:not(:hover) { opacity: 1 !important; }
@@ -3424,14 +3299,5 @@ body {
     animation: none !important;
     transform: none !important;
     justify-content: center;
-  }
-  .hero__ring {
-    animation: none;
-    transform: none;
-    opacity: 0.35;
-  }
-  .hero__profile-popup {
-    transition: none;
-    transform: translateX(-50%) scale(1);
   }
 }

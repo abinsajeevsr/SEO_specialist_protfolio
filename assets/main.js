@@ -194,40 +194,6 @@
     }
   }
 
-  // Profile avatar touch popup
-  var avatar = document.querySelector('.hero__avatar-interactive');
-  if (avatar) {
-    avatar.addEventListener('click', function () {
-      avatar.classList.toggle('is-active');
-    });
-    document.addEventListener('click', function (e) {
-      if (!avatar.contains(e.target)) avatar.classList.remove('is-active');
-    });
-  }
-
-  // Hero breathing ring pause handling when off-screen or tab hidden
-  var heroRing = document.querySelector('.hero__ring');
-  var heroSection = document.querySelector('.hero');
-  if (heroRing && heroSection) {
-    var isHeroVisible = true;
-    var updateRingPause = function () {
-      if (!isHeroVisible || document.hidden) {
-        heroRing.classList.add('is-paused');
-      } else {
-        heroRing.classList.remove('is-paused');
-      }
-    };
-
-    if ('IntersectionObserver' in window) {
-      new IntersectionObserver(function (entries) {
-        isHeroVisible = entries[0].isIntersecting;
-        updateRingPause();
-      }, { threshold: 0.05 }).observe(heroSection);
-    }
-
-    document.addEventListener('visibilitychange', updateRingPause);
-  }
-
   var motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 
   // Intro text reveal on scroll
